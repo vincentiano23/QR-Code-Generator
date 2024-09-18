@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
 </head>
 <body>
     <div class="container">
         <h1>QR Code Generator</h1>
-        <input type="text" id="qrInput" placeholder="Enter text or URL" />
-        <button id="generateBtn">Generate QR Code</button>
-        <div id="qrCode"></div>
+        <input type="text" id="text" placeholder="Enter text or URL" />
+        <button onclick="generateQRCode()">Generate QR Code</button>
+        <canvas id="qrCode"></canvas>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-qrcode/1.0.0/jquery.qrcode.min.js"></script>
-    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script>
+        function generateQRCode() {
+            var qrCodeContainer = document.getElementById("qrCode");
+            qrCodeContainer.innerHTML = ''; // Clear previous QR code
+            var text = document.getElementById("text").value.trim();
+
+            if (text) {
+                var qr = new QRious({
+                    element: qrCodeContainer,
+                    value: text,
+                    size: 160
+                });
+            } else {
+                alert("PLEASE ENTER TEXT OR URL TO GENERATE QR CODE.");
+            }
+        }
+    </script>
 </body>
 </html>
