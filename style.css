@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: hwb(266 20% 40%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ body {
 }
 
 input {
-    padding: 10px;
+    padding: 20px;
     width: 300px;
     margin-bottom: 10px;
 }
@@ -32,7 +32,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #882148;
 }
 
 #qrCode {
